@@ -2,16 +2,19 @@ from urllib import request
 from bs4 import BeautifulSoup
 import json
 import os
+import pdfkit
 
 class TPExtractor:
     def __init__(self):
         self.start = '<!-- Tutorial Content Starts Here -->'
         self.end = '<!-- Tutorial Content Ends Here -->'
-        self.sep = 'hr{ border: 1px dashed #000; width: 50%; margin: auto; margin-top: 5%; margin-bottom: 5%; }'
         self.domain = 'https://www.tutorialspoint.com/'
 
     def getPDF(self, filename = 'out'):
-        return
+        try:
+            pdfkit.from_file(filename + '.html', filename + '.pdf')
+        except Exception as e:
+            print("Empty File Possible" + e)
 
     def getNext(self, content):
         try:
@@ -36,7 +39,6 @@ class TPExtractor:
             fileOption = 'a'
         else:
             fileOption = 'w'
-            content = self.sep + content
         
         f = open(htmlFilename, fileOption)
         f.write(content + '<hr><hr>')
