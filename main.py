@@ -10,7 +10,7 @@ class TPExtractor:
     def __init__(self, argsList):
         self.start = '<!-- Tutorial Content Starts Here -->'
         self.end = '<!-- Tutorial Content Ends Here -->'
-        self.domain = 'https://www.tutorialspoint.com/'
+        self.domain = 'https://www.tutorialspoint.com'
         url = str(argsList[1])
         iters = int(argsList[2]) if len(argsList) > 2 else 1
         outFile = str(argsList[3]) if len(argsList) > 3 else 'out'
@@ -31,13 +31,21 @@ class TPExtractor:
             outerdiv = soup.find_all("div", attrs = {"id":"bottom_navigation"})
             innerdiv = [iter.find('div', attrs = {"class" : "nxt-btn"} ) for iter in outerdiv]
             nextURL = [iter.find('a')["href"] for iter in innerdiv]
-            return self.domain + nextURL[-1]
+            return nextURL[-1]
         except Exception as E:
             print(E)
             return False
 
-    def absoluteHREFs(self, content):
-        return content
+    def absoluteLinks(self, content):
+        domain = self.domain
+        soup = BeautifulSoup(content, 'html.parser')
+        for hyperlink in soup.find_all(href=True):
+            hyperlink["href"] = domain + hyperlink["href"]
+            print(hyperlink['href'])
+        for hyperlink in soup.find_all(src=True):
+            hyperlink["src"] = domain + hyperlink["src"]
+            print(hyperlink['src'])
+        return str(soup)
 
     def addToHTML(self, URL, iterations = 1, filename = 'out'):
         print(str(iterations) + " pages to go . . .")
@@ -46,7 +54,7 @@ class TPExtractor:
         req = request.urlopen(URL)
         html = req.read().decode('utf-8')
         content = html.split(self.start)[1].split(self.end)[0]
-        content = self.absoluteHREFs(content)
+        content = self.absoluteLinks(content)
         htmlFilename = filename + '.html'
         if os.path.exists(htmlFilename):
             fileOption = 'a'
