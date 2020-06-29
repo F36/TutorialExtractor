@@ -131,3 +131,5 @@ dmypy.json
 # Output Files for test
 out.html
 out.pdf
+*.pdf
+*.html
