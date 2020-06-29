@@ -13,6 +13,7 @@ def input_post():
     pages = request.form['pages']
     outFile = request.form['outFile']
     TPExtractor(["dummy", URL, pages, outFile])
+    return 'OK'
 
 if __name__ == '__main__':
     app.run()
