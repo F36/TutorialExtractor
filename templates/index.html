@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Turorial Extractor</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <h3> Enter Relevant Details to Generate PDF for TutorialsPoint Articles</h3>
+        <form action = "." method = "POST">
+            <label for="URL"> URL :</label><br>
+            <input type="url" id="URL" name="URL"><br><br>
+            <label for="pages"> Continue till how many pages :</label><br>
+            <input type="number" id="pages" name="pages" min="1" max="200" value="1"><br><br>
+            <label for="outFile"> Save As: (alphanumeric, dash and underscore accepted)</label><br>
+            <input type="text" id="outFile" name="outFile" value="out" required pattern="^[A-Za-z0-9-_]*$"><br><br>
+            <input type="submit" value="Generate">
+            <input type="reset">
+        </form>
+        <script src="" async defer></script>
+    </body>
+</html>
