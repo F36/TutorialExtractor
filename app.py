@@ -1,5 +1,6 @@
 from main import TPExtractor
 from flask import Flask, request, render_template
+import time
 
 app = Flask(__name__) 
 
@@ -13,7 +14,8 @@ def input_post():
     pages = request.form['pages']
     outFile = request.form['outFile']
     TPExtractor(["dummy", URL, pages, outFile])
-    return 'OK'
+    message = '<br><br>Your File is Ready to <a href="' + outFile + '.pdf"> Download </a>'
+    return render_template("index.html") + message
 
 if __name__ == '__main__':
     app.run()
