@@ -20,7 +20,7 @@ def input_post():
 @app.route('/<outFile>')
 def getDownload(outFile) :
     try:
-        return send_file(filename_or_fp = str(outFile + '.pdf'), as_attachment=True)
+        return send_file(filename_or_fp = str('./' + outFile + '.pdf'), as_attachment=True)
     except Exception as E:
         print(E)
 
