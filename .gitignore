@@ -132,9 +132,9 @@ dmypy.json
 # Virtual Studio Code
 .vscode/
 
-# Output Files for test
-out.html
-out.pdf
-*.pdf
-*.html
-!templates/*
+# # Output Files for test
+# out.html
+# out.pdf
+# *.pdf
+# *.html
+# !templates/*
