@@ -28,7 +28,7 @@ def getDownload(outFile) :
         files = [f for f in os.listdir('.') if os.path.isfile(f)]
         for f in files:
             print(f)
-        return send_file(filename_or_fp = str('./' + outFile + '.pdf'), as_attachment=True)
+        return send_file(filename_or_fp = str(outFile + '.html'), as_attachment=True)
     except Exception as E:
         print(E)
 
