@@ -2,6 +2,7 @@ from main import TPExtractor
 from flask import Flask, request, render_template, send_file
 import time
 import os
+import copy
 
 app = Flask(__name__) 
 
@@ -14,8 +15,11 @@ def input_post():
     URL = request.form['URL']
     pages = request.form['pages']
     outFile = request.form['outFile']
-    TPExtractor(["dummy", URL, pages, outFile])
-    message = '<br><br>Your File is Ready to <a href="./' + outFile + '"> Download </a>'
+    print(outFile)
+    oF = copy.deepcopy(outFile)
+    TPExtractor(["dummy", URL, pages, oF])
+    print(outFile)
+    message = '<br><br>Your File is Ready to <a href="' + outFile + '"> Download </a>'
     return render_template("index.html") + message
 
 @app.route('/<outFile>')
