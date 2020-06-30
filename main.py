@@ -4,6 +4,7 @@ import json
 import os
 import sys
 import pdfkit
+import subprocess
 
 class TPExtractor:
 
@@ -21,7 +22,16 @@ class TPExtractor:
     
     def getPDF(self, filename = 'out'):
         try:
-            pdfkit.from_file(filename + '.html', filename + '.pdf')
+            if 'DYNO' in os.environ:
+                print ('loading wkhtmltopdf path on heroku')
+                WKHTMLTOPDF_CMD = subprocess.Popen(
+                    ['which', os.environ.get('WKHTMLTOPDF_BINARY', 'wkhtmltopdf-pack')], # Note we default to 'wkhtmltopdf' as the binary name
+                    stdout=subprocess.PIPE).communicate()[0].strip()
+            else:
+                print ('loading wkhtmltopdf path on localhost')
+                MYDIR = os.path.dirname(__file__)    
+                WKHTMLTOPDF_CMD = os.path.join(MYDIR + "/static/executables/bin/", "wkhtmltopdf.exe")
+                pdfkit.from_file(filename + '.html', filename + '.pdf')
         except Exception as e:
             print("Empty File Possible" + e)
 
