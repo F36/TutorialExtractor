@@ -18,6 +18,9 @@ class TPExtractor:
         for i in ['.html', '.pdf']:
             if os.path.exists(outFile + i):
                 os.remove(outFile + i)
+        for file in os.scandir('.'):
+            if file.name.endswith(".html") or file.name.endswith(".pdf"):
+                os.unlink(file.path)
         self.addToHTML(url, iters, outFile)
     
     def getPDF(self, filename = 'out'):

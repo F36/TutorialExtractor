@@ -1,6 +1,7 @@
 from main import TPExtractor
 from flask import Flask, request, render_template, send_file
 import time
+import os
 
 app = Flask(__name__) 
 
@@ -20,6 +21,9 @@ def input_post():
 @app.route('/<outFile>')
 def getDownload(outFile) :
     try:
+        files = [f for f in os.listdir('.') if os.path.isfile(f)]
+        for f in files:
+            print(f)
         return send_file(filename_or_fp = str('./' + outFile + '.pdf'), as_attachment=True)
     except Exception as E:
         print(E)
