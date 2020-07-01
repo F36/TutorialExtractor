@@ -5,6 +5,7 @@ import os
 import sys
 import pdfkit
 import subprocess
+import platform 
 
 class TPExtractor:
 
@@ -24,19 +25,32 @@ class TPExtractor:
         self.addToHTML(url, iters, outFile)
     
     def getPDF(self, filename = 'out'):
+
+        def _get_pdfkit_config():
+            """wkhtmltopdf lives and functions differently depending on Windows or Linux. We
+            need to support both since we develop on windows but deploy on Heroku.
+            Returns: A pdfkit configuration"""
+            if platform.system() == 'Windows':
+                return pdfkit.configuration(wkhtmltopdf=os.environ.get('WKHTMLTOPDF_BINARY', 'C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe'))
+            else:
+                WKHTMLTOPDF_CMD = subprocess.Popen(['which', os.environ.get('WKHTMLTOPDF_BINARY', 'wkhtmltopdf')], stdout=subprocess.PIPE).communicate()[0].strip()
+                return pdfkit.configuration(wkhtmltopdf=WKHTMLTOPDF_CMD)
+
         try:
             if 'DYNO' in os.environ:
                 print ('loading wkhtmltopdf path on heroku')
                 WKHTMLTOPDF_CMD = subprocess.Popen(
                     ['which', os.environ.get('WKHTMLTOPDF_BINARY', 'wkhtmltopdf-pack')], # Note we default to 'wkhtmltopdf' as the binary name
                     stdout=subprocess.PIPE).communicate()[0].strip()
+                print("DYNO")
+                pdfkit.from_file(filename + '.html', filename + '.pdf', configuration=_get_pdfkit_config())
             else:
                 print ('loading wkhtmltopdf path on localhost')
                 MYDIR = os.path.dirname(__file__)    
                 WKHTMLTOPDF_CMD = os.path.join(MYDIR + "/static/executables/bin/", "wkhtmltopdf.exe")
-            pdfkit.from_file(filename + '.html', filename + '.pdf')
+                pdfkit.from_file(filename + '.html', filename + '.pdf', configuration=_get_pdfkit_config())
         except Exception as e:
-            print("Empty File Possible" + e)
+            print("Empty File Possible" + str(e))
 
     def getNext(self, content):
         try:
