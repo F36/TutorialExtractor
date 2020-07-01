@@ -119,37 +119,46 @@ class Generic:
 
     def getNext(self, content):
         try:
-            print("shis")
+            print(content)
             soup = BeautifulSoup(content, 'html.parser')
-            tagsToConsider = ['a', 'div', 'button', 'area', 'base', 'link']
-            mydivs = []
-            for tag in tagsToConsider:
-                mydivs.extend(list(soup.find_all(name=tag, href=True)))
-            print(mydivs)
+            parsed = soup.prettify()
+            parsed = parsed.split('\n')
+            print(parsed)
+            for line in parsed:
+                if 'href' in line:
+                    print(line)
             return False
         except Exception as E:
             print(E)
             return False
 
+    def getAbsolute(self, content, domain):
+        soup = BeautifulSoup(content, 'html.parser')
+        for hyperlink in soup.find_all(href=True):
+            if str(hyperlink["href"]).startswith('/'):
+                hyperlink["href"] = str(domain) + hyperlink["href"]
+            elif str(hyperlink["href"]).startswith('./'):
+                hyperlink["href"] = str(domain) + hyperlink["href"][1:]
+        for hyperlink in soup.find_all(src=True):
+            if str(hyperlink["src"]).startswith('/'):
+                hyperlink["src"] = str(domain) + hyperlink["src"]
+            elif str(hyperlink["src"]).startswith('./'):
+                hyperlink["src"] = str(domain) + hyperlink["src"][1:]
+        return str(soup)
+
     def util(self, URL, iterations = 1, filename = 'out'):
         print(str(iterations) + " pages to go . . .")
         if iterations < 1:
             return self.ob.getPDF(filename)
-        print('.')
         req = request.urlopen(URL)
         html = req.read().decode('utf-8')
         domain = self.domain
-        print('.')
-        # content = self.ob.absoluteLinks(html, domain)
-        content = html
+        content = str(self.getAbsolute(html, domain))
         htmlFilename = filename + '.html'
-        print('.')
         if os.path.exists(htmlFilename):
             fileOption = 'a'
         else:
             fileOption = 'w'
-        print('.')
-        
         f = open(htmlFilename, fileOption)
         f.write(content + '<hr><hr>')
         f.close()

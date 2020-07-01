@@ -1,0 +1,614 @@
+ <!DOCTYPE html>
+<html lang="en"><head><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><title>Python Features - javatpoint</title><link href="https://static.javatpoint.com/images/favicon2.png" rel="SHORTCUT ICON"/>
+<link href="https://static.javatpoint.com/link.css" rel="stylesheet" type="text/css"/><link href="https://clients1.google.com" rel="dns-prefetch"/><link href="https://static.javatpoint.com" rel="dns-prefetch"/><link href="https://googleads.g.doubleclick.net" rel="dns-prefetch"/><link href="https://www.google.com" rel="dns-prefetch"/><link href="https://feedify.net" rel="dns-prefetch"/><meta content="#4CAF50" name="theme-color"><meta content="Python Features - javatpoint" property="og:title"/><meta content="python features - A simple and easy to learn tutorial on various python topics such as loops, strings, lists, dictionary, tuples, date, time, files, functions, modules, methods and exceptions." property="og:description"/>
+<meta content="python, tutorial, features, examples, programs, language, loops, strings, lists, dictionary, tuples, date, time, files, functions, modules, methods, exceptions" name="keywords"/><meta content="python features - A simple and easy to learn tutorial on various python topics such as loops, strings, lists, dictionary, tuples, date, time, files, functions, modules, methods and exceptions." name="description"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="yes" name="apple-mobile-web-app-capable"/><meta content="black" name="apple-mobile-web-app-status-bar-style"/><link href="https://www.javatpoint.com/python-features" rel="canonical">
+<meta content="en_US" property="og:locale"><meta content="article" property="og:type"><meta content="Python Features - javatpoint" name="twitter:title" property="og:title"><meta content="python features - A simple and easy to learn tutorial on various python topics such as loops, strings, lists, dictionary, tuples, date, time, files, functions, modules, methods and exceptions." name="twitter:description" property="og:description"/><meta content="https://www.javatpoint.com/python-features" property="og:url"/><meta content="www.javatpoint.com" property="og:site_name"/><meta content="summary" name="twitter:card"/><meta content="@pagejavatpoint" name="twitter:site"/><meta content="www.javatpoint.com" name="twitter:domain"/><meta content="@pagejavatpoint" name="twitter:creator"/>
+<link href="https://www.javatpoint.com/manifest.json" rel="manifest"/>
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = '//delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = '//cdn.adpushup.com/37780/adpushup.js'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+</meta></meta></meta></link></meta></head>
+<body onload="highlightlink()">
+<button id="myBtn" onclick="topFunction()" title="Go to top">⇧</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px">
+<tr>
+<td>
+<div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px">
+<a href="https://www.javatpoint.com"><img alt="Javatpoint Logo" src="https://www.javatpoint.com/images/logo/jtp_logo.png"/></a>
+</div>
+<div style="float:left;width:60%;">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+</div>
+</td>
+</tr>
+<!--<tr>
+        <td>
+            <div id="headerlink" style="padding:0px;margin:0px"><span style="margin-right:20px;width:45px"></span><span style="float:right;margin-right:5px;width:45%"> </span>
+                
+            </div>
+        </td>
+    </tr>-->
+</table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input alt="Go To Top" onclick="showmenu()" src="https://www.javatpoint.com/images/menuhome64.png" type="image"/></span>
+<span style="float:left"><a href="https://www.javatpoint.com"><img alt="Javatpoint Logo" src="https://www.javatpoint.com/images/logo/jtp_logo.png"/></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+<!--<form class="navbar-search-m" method="get" action="https://www.google.com/search" target="_blank"> <input type="text" name="q" class="search-query span2-m" placeholder="Search on javatpoint..." title="Search on Javatpoint"/><input type="hidden" name="sitesearch" value="www.javatpoint.com"/></form>-->
+</div>
+</div>
+<div id="link" style="clear:both"> <div class="ddsmoothmenu">
+<ul>
+<li><a href="https://www.javatpoint.com">Home</a></li>
+<li><a class="selected" href="python-tutorial">Python</a></li>
+<li><a href="java-tutorial">Java</a></li>
+<li><a href="sql-tutorial">SQL</a></li>
+<li><a href="android-tutorial">Android</a></li>
+<li><a href="cloud-computing-tutorial">Cloud</a></li>
+<li><a href="javascript-tutorial">JavaScript</a></li>
+<li><a href="servlet-tutorial">Servlet</a></li>
+<li><a href="jsp-tutorial">JSP</a></li>
+<li><a href="struts-2-tutorial">Struts2</a></li>
+<li><a href="spring-tutorial">Spring</a></li>
+<li><a href="examaccess">Quiz</a></li>
+<li><a href="free-java-projects">Projects</a></li>
+<li><a href="corejava-interview-questions">Interview Q</a></li>
+<li><a href="comment.jsp">Comment</a></li>
+<li><a href="forum">Forum</a></li>
+<li><a href="training">Training</a></li>
+</ul>
+<br style="clear: left"/>
+</div></div>
+<div class="mobilemenu" style="clear:both">
+<!-- Cm_300x250_Mob_14/9 -->
+<ins class="adPushupAds" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4=" data-adpcontrol="hqdgs" data-siteid="37780" data-ver="2"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Python Tutorial</span></h2>
+</div>
+<div class="leftmenu">
+<a href="python-tutorial">Python Tutorial</a>
+<a href="python-features">Python Features</a>
+<a href="python-history">Python History</a>
+<a href="python-applications">Python Applications</a>
+<a href="how-to-install-python">Python Install</a>
+<a href="python-example">Python Example</a>
+<a href="python-variables">Python Variables</a>
+<a href="python-data-types">Python Data Types</a>
+<a href="python-keywords">Python Keywords</a>
+<a href="python-literals">Python Literals</a>
+<a href="python-operators">Python Operators</a>
+<a href="python-comments">Python Comments</a>
+<a href="python-if-else">Python If else</a>
+<a href="python-loops">Python Loops</a>
+<a href="python-for-loop">Python For Loop</a>
+<a href="python-while-loop">Python While Loop</a>
+<a href="python-break">Python Break</a>
+<a href="python-continue">Python Continue</a>
+<a href="python-pass">Python Pass</a>
+<a href="python-strings"><span>Python Strings</span></a>
+<a href="python-lists"><span>Python Lists</span></a>
+<a href="python-tuples"><span>Python Tuples</span></a>
+<a href="python-list-vs-tuple">Python List Vs Tuple</a>
+<a href="python-set"><span>Python Sets</span></a>
+<a href="python-dictionary"><span>Python Dictionary</span></a>
+<a href="python-functions"><span>Python Functions</span></a>
+<a href="python-built-in-functions"><span>Python Built-in Functions</span></a>
+<a href="python-lambda-functions"><span>Python Lambda Functions</span></a>
+<a href="python-files-io"><span>Python Files I/O</span></a>
+<a href="python-modules"><span>Python Modules</span></a>
+<a href="python-exception-handling"><span>Python Exceptions</span></a>
+<a href="python-date"><span>Python Date</span></a>
+<a href="python-regex">Python Regex</a>
+<a href="python-sending-email">Python Sending Email</a>
+<a href="python-read-csv-file">Read CSV File</a>
+<a href="python-write-csv-file">Write CSV File</a>
+<a href="python-read-excel-file">Read Excel File</a>
+<a href="python-write-excel-file">Write Excel File</a>
+<a href="python-assert-keyword">Python Assert</a>
+<a href="python-list-comprehension">Python List Comprehension</a>
+<a href="python-collection-module">Python Collection Module</a>
+<a href="python-math-module">Python Math Module</a>
+<a href="python-os-module">Python OS Module</a>
+<a href="python-random-module">Python Random Module</a>
+<a href="python-statistics-module">Python Statistics Module</a>
+<a href="python-sys-module">Python Sys Module</a>
+<a href="python-ides">Python IDEs</a>
+<a href="python-arrays">Python Arrays</a>
+<a href="python-command-line-arguments">Command Line Arguments</a>
+<a href="python-magic-method">Python Magic Method</a>
+<a href="python-stack-and-queue">Python Stack &amp; Queue</a>
+<a href="pyspark-mllib">PySpark MLlib</a>
+<a href="python-decorator">Python Decorator</a>
+<a href="python-generators">Python Generators</a>
+<a href="web-scraping-using-python">Web Scraping Using Python</a>
+<a href="python-json">Python JSON</a>
+<a href="python-itertools">Python Itertools</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Python OOPs</span></h2>
+</div>
+<div class="leftmenu">
+<a href="python-oops-concepts">Python OOPs Concepts</a>
+<a href="python-objects-classes">Python Object Class</a>
+<a href="python-constructors">Python Constructors</a>
+<a href="inheritance-in-python">Python Inheritance</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Python MySQL</span></h2>
+</div>
+<div class="leftmenu">
+<a href="python-mysql-environment-setup">Environment Setup</a>
+<a href="python-mysql-database-connection">Database Connection</a>
+<a href="python-mysql-creating-new-database">Creating New Database</a>
+<a href="python-mysql-creating-tables">Creating Tables</a>
+<a href="python-mysql-insert-operation">Insert Operation</a>
+<a href="python-mysql-read-operation">Read Operation</a>
+<a href="python-mysql-update-operation">Update Operation</a>
+<a href="python-mysql-join-operation">Join Operation</a>
+<a href="python-mysql-performing-transactions">Performing Transactions</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Python MongoDB</span></h2>
+</div>
+<div class="leftmenu">
+<a href="python-mongodb">Python MongoDB</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Python SQLite</span></h2>
+</div>
+<div class="leftmenu">
+<a href="python-sqlite">Python SQLite</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Python Tkinter (GUI)</span></h2>
+</div>
+<div class="leftmenu">
+<a href="python-tkinter">Python Tkinter</a>
+<a href="python-tkinter-button">Tkinter Button</a>
+<a href="python-tkinter-canvas">Tkinter Canvas</a>
+<a href="python-tkinter-checkbutton">Tkinter Checkbutton</a>
+<a href="python-tkinter-entry">Tkinter Entry</a>
+<a href="python-tkinter-frame">Tkinter Frame</a>
+<a href="python-tkinter-label">Tkinter Label</a>
+<a href="python-tkinter-listbox">Tkinter Listbox</a>
+<a href="python-tkinter-menubutton">Tkinter Menubutton</a>
+<a href="python-tkinter-menu">Tkinter Menu</a>
+<a href="python-tkinter-message">Tkinter Message</a>
+<a href="python-tkinter-radiobutton">Tkinter Radiobutton</a>
+<a href="python-tkinter-scale">Tkinter Scale</a>
+<a href="python-tkinter-scrollbar">Tkinter Scrollbar</a>
+<a href="python-tkinter-text">Tkinter Text</a>
+<a href="python-tkinter-toplevel">Tkinter Toplevel</a>
+<a href="python-tkinter-spinbox">Tkinter Spinbox</a>
+<a href="python-tkinter-panedwindow">Tkinter PanedWindow</a>
+<a href="python-tkinter-labelframe">Tkinter LabelFrame</a>
+<a href="python-tkinter-messagebox">Tkinter MessageBox</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Python Web Blocker</span></h2>
+</div>
+<div class="leftmenu">
+<a href="python-website-blocker">Introduction</a>
+<a href="python-website-blocker-building-python-script">Building Python Script</a>
+<a href="python-website-blocker-script-deployment-on-linux">Script Deployment on Linux</a>
+<a href="python-website-blocker-script-deployment-on-windows">Script Deployment on Windows</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Related Tutorials</span></h2>
+</div>
+<div class="leftmenu">
+<a href="numpy-tutorial"><span>NumPy Tutorial</span></a>
+<a href="django-tutorial"><span>Django Tutorial</span></a>
+<a href="flask-tutorial"><span>Flask Tutorial</span></a>
+<a href="python-pandas"><span>Pandas Tutorial</span></a>
+<a href="pytorch"><span>Pytorch Tutorial</span></a>
+<a href="pygame"><span>Pygame Tutorial</span></a>
+<a href="matplotlib"><span>Matplotlib Tutorial</span></a>
+<a href="opencv"><span>OpenCV Tutorial</span></a>
+<a href="python-openpyxl"><span>Openpyxl Tutorial</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Python Programs</span></h2>
+</div>
+<div class="leftmenu">
+<a href="python-programs"><span>Python Programs</span></a>
+</div>
+<!--
+<div class="leftmenu2"  >
+<a href="python-time"><span>Python Time</span></a>
+</div>
+-->
+<img alt="JavaTpoint" src="https://www.javatpoint.com/wh.JPG">
+<br/>
+<div id="leftad" style="margin-left:20px">
+<!-- javatpointleft -->
+<ins class="adPushupAds" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBqYXZhdHBvaW50bGVmdCAtLT4KPGlucyBjbGFzcz0iYWRzYnlnb29nbGUiCiAgICAgc3R5bGU9ImRpc3BsYXk6aW5saW5lLWJsb2NrO3dpZHRoOjE2MHB4O2hlaWdodDo2MDBweCIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI0NDc2NDAxMjIyIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+" data-adpcontrol="g8drp" data-siteid="37780" data-ver="2"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+</img></div>
+<div class="onlycontent">
+<div class="onlycontentad">
+<!-- CM_JTP_Leaderbaord -->
+<ins class="adPushupAds" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDTV9KVFBfTGVhZGVyYmFvcmQgLS0+CjxpbnMgY2xhc3M9ImFkc2J5Z29vZ2xlIgogICAgIHN0eWxlPSJkaXNwbGF5OmJsb2NrIgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjkyMDE5MDE5MTUiCiAgICAgZGF0YS1hZC1mb3JtYXQ9ImF1dG8iCiAgICAgZGF0YS1mdWxsLXdpZHRoLXJlc3BvbnNpdmU9InRydWUiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4=" data-adpcontrol="nuoc1" data-siteid="37780" data-ver="2"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="python-history">next →</a>
+<a class="next" href="python-tutorial">← prev</a>
+</div>
+<h1 class="h1">Python Features</h1>
+<p>Python provides many useful features which make it popular and valuable from the other programming languages. It supports object-oriented programming, procedural programming approaches and provides dynamic memory allocation. We have listed below a few essential features.</p>
+<h3 class="h3">1) Easy to Learn and Use</h3>
+<p>Python is easy to learn as compared to other programming languages. Its syntax is straightforward and much the same as the English language. There is no use of the semicolon or curly-bracket, the indentation defines the code block. It is the recommended programming language for beginners. </p>
+<h3 class="h3">2) Expressive Language</h3>
+<p>Python can perform complex tasks using a few lines of code. A simple example, the hello world program you simply type <strong>print("Hello World")</strong>. It will take only one line to execute, while Java or C takes multiple lines.</p>
+<h3 class="h3">3) Interpreted Language</h3>
+<p>Python is an interpreted language; it means the Python program is executed one line at a time. The advantage of being interpreted language, it makes debugging easy and portable. </p>
+<h3 class="h3">4) Cross-platform Language</h3>
+<p>Python can run equally on different platforms such as Windows, Linux, UNIX, and Macintosh, etc. So, we can say that Python is a portable language. It enables programmers to develop the software for several competing platforms by writing a program only once. </p>
+<h3 class="h3">5) Free and Open Source</h3>
+<p>Python is freely available for everyone. It is freely available on its official website <a href="https://www.python.org/" rel="nofollow" target="blank">www.python.org</a>. It has a large community across the world that is dedicatedly working towards make new python modules and functions. Anyone can contribute to the Python community. The open-source means, "Anyone can download its source code without paying any penny."</p>
+<h3 class="h3">6) Object-Oriented Language</h3>
+<p>Python supports object-oriented language and concepts of classes and objects come into existence. It supports inheritance, polymorphism, and encapsulation, etc. The object-oriented procedure helps to programmer to write reusable code and develop applications in less code. </p>
+<h3 class="h3">7) Extensible</h3>
+<p>It implies that other languages such as C/C++ can be used to compile the code and thus it can be used further in our Python code. It converts the program into byte code, and any platform can use that byte code. </p>
+<h3 class="h3">8) Large Standard Library</h3>
+<p>It provides a vast range of libraries for the various fields such as machine learning, web developer, and also for the scripting.  There are various machine learning libraries, such as Tensor flow, Pandas, Numpy, Keras, and Pytorch, etc.  Django, flask, pyramids are the popular framework for Python web development.</p>
+<h3 class="h3">9) GUI Programming Support</h3>
+<p>Graphical User Interface is used for the developing Desktop application. PyQT5, Tkinter, Kivy are the libraries which are used for developing the web application.</p>
+<h3 class="h3">10) Integrated</h3>
+<p>It can be easily integrated with languages like C, C++, and JAVA, etc. Python runs code line by line like C,C++ Java. It makes easy to debug the code.</p>
+<h3 class="h3">11. Embeddable</h3>
+<p>The code of the other programming language can use in the Python source code. We can use Python source code in another programming language as well. It can embed other language into our code.</p>
+<h3 class="h3">12. Dynamic Memory Allocation</h3>
+<p>In Python, we don't need to specify the data-type of the variable. When we assign some value to the variable, it automatically allocates the memory to the variable at run time. Suppose we are assigned integer value 15 to <strong>x,</strong> then we don't need to write <strong>int x = 15.</strong> Just write x = 15.</p>
+<hr/>
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="python-history">Python History</a></span>
+</div>
+<!-- link -->
+<br/><br/>
+<div id="bottomnext">
+<a class="next" href="python-tutorial" style="float:left">← prev</a>
+<a class="next" href="python-history" style="float:right">next →</a>
+</div>
+<br/><br/>
+</td></tr>
+</table>
+</div>
+<h2 class="h2">Help Others, Please Share</h2>
+<a href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/python-features" rel="nofollow" target="_blank" title="Facebook"><img alt="facebook" src="https://www.javatpoint.com/images/facebook32.png"/></a>
+<a href="https://twitter.com/share?url=https://www.javatpoint.com/python-features" rel="nofollow" target="_blank" title="Twitter"><img alt="twitter" src="https://www.javatpoint.com/images/twitter32.png"/></a>
+<a href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/python-features" rel="nofollow" target="_blank" title="Pinterest"><img alt="pinterest" src="https://www.javatpoint.com/images/pinterest32.png"/></a>
+<!-- contribute start-->
+<!-- contribute end-->
+<script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- AP_37780_300x250(0) -->
+<ins class="adsbygoogle" data-ad-client="ca-pub-4699858549023382" data-ad-format="auto" data-ad-slot="5022809933" data-full-width-responsive="true" style="display:block"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<!-- latest tutorials start -->
+<h2 class="h2">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="mysql-tutorial">
+<div class="homecontent"><img alt="MySQL tutorial" class="lazyload" data-src="https://static.javatpoint.com/images/logo/mysql.png"/>
+<p>MySQL</p>
+</div>
+</a>
+<a href="python-tutorial">
+<div class="homecontent"><img alt="Python tutorial" class="lazyload" data-src="https://static.javatpoint.com/images/logo/pythonhome.png"/>
+<p>Python</p>
+</div>
+</a>
+<a href="https://www.javatpoint.com/smartsheet">
+<div class="homecontent"><img alt="smartsheet" class="lazyload" data-src="https://static.javatpoint.com/tutorial/smartsheet/images/smartsheet-home.png"/>
+<p>Smartsheet</p>
+</div>
+</a>
+<a href="https://www.javatpoint.com/affiliate-marketing">
+<div class="homecontent"><img alt="affiliate marketing" class="lazyload" data-src="https://static.javatpoint.com/tutorial/affiliate-marketing/images/affiliate-marketing-home.png"/>
+<p>Affiliate M.</p>
+</div>
+</a>
+<a href="https://www.javatpoint.com/software-testing-tutorial">
+<div class="homecontent"><img alt="Software Testing Tutorial" class="lazyload" data-src="https://static.javatpoint.com/tutorial/software-testing/images/software-testing-home.png"/>
+<p>Testing</p>
+</div>
+</a>
+<a href="https://www.javatpoint.com/proc">
+<div class="homecontent"><img alt="Proc*C" class="lazyload" data-src="https://static.javatpoint.com/tutorial/proc/images/proc-home.png"/>
+<p>Proc*C</p>
+</div>
+</a>
+<a href="https://www.javatpoint.com/social-media-marketing">
+<div class="homecontent"><img alt="social media marketing" class="lazyload" data-src="https://static.javatpoint.com/tutorial/social-media-marketing/images/smm-home.png"/>
+<p>SMM</p>
+</div>
+</a>
+<a href="https://www.javatpoint.com/gdb">
+<div class="homecontent"><img alt="GDB" class="lazyload" data-src="https://static.javatpoint.com/tutorial/gdb/images/gdb-home.png"/>
+<p>GDB</p>
+</div>
+</a>
+<a href="https://www.javatpoint.com/fuzzy-logic">
+<div class="homecontent"><img alt="Fuzzy Logic" class="lazyload" data-src="https://static.javatpoint.com/tutorial/fuzzy-logic/images/fuzzy-logic-home.jpg"/>
+<p>Fuzzy Logic</p>
+</div>
+</a>
+<a href="https://www.javatpoint.com/dhtml">
+<div class="homecontent"><img alt="DHTML" class="lazyload" data-src="https://static.javatpoint.com/tutorial/dhtml/images/dhtml-home.png"/>
+<p>DHTML</p>
+</div>
+</a>
+<a href="https://www.javatpoint.com/google-classroom">
+<div class="homecontent"><img alt="Google Classroom" class="lazyload" data-src="https://static.javatpoint.com/tutorial/google-classroom/images/google-classroom-home.png"/>
+<p>Classroom</p>
+</div>
+</a>
+<a href="https://www.javatpoint.com/autocad">
+<div class="homecontent"><img alt="autocad Tutorial" class="lazyload" data-src="https://static.javatpoint.com/tutorial/autocad/images/autocad-home.png"/>
+<p>AutoCad</p>
+</div>
+</a>
+</div>
+<hr/>
+<!-- preparation start -->
+<h2 class="h2">Preparation</h2>
+<div class="firsthomecontent">
+<a href="https://www.javatpoint.com/aptitude/quantitative">
+<div class="homecontent"><img alt="Aptitude" class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png"/>
+<p>Aptitude</p>
+</div>
+</a>
+<a href="https://www.javatpoint.com/reasoning">
+<div class="homecontent"><img alt="Logical Reasoning" class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png"/>
+<p>Reasoning</p>
+</div>
+</a>
+<a href="https://www.javatpoint.com/verbal-ability">
+<div class="homecontent"><img alt="Verbal Ability" class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png"/>
+<p>Verbal A.</p>
+</div>
+</a>
+<a href="https://www.javatpoint.com/interview-questions-and-answers">
+<div class="homecontent"><img alt="Interview Questions" class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png"/>
+<p>Interview</p>
+</div>
+</a>
+<a href="https://www.javatpoint.com/company-interview-questions-and-recruitment-process">
+<div class="homecontent"><img alt="Company Interview Questions" class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg"/>
+<p>Company</p>
+</div>
+</a>
+</div>
+<hr/>
+<!-- trending start -->
+<h2 class="h2">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="https://www.javatpoint.com/artificial-intelligence-tutorial">
+<div class="homecontent"><img alt="Artificial Intelligence Tutorial" class="lazyload" data-src="https://static.javatpoint.com/tutorial/ai/images/ai-home.png"/>
+<p>AI</p>
+</div>
+</a>
+<a href="https://www.javatpoint.com/aws-tutorial">
+<div class="homecontent"><img alt="AWS Tutorial" class="lazyload" data-src="https://static.javatpoint.com/tutorial/aws/images/aws-home.png"/>
+<p>AWS</p>
+</div>
+</a>
+<a href="https://www.javatpoint.com/selenium-tutorial">
+<div class="homecontent"><img alt="Selenium tutorial" class="lazyload" data-src="https://static.javatpoint.com/tutorial/selenium/images/selenium-home.jpg"/>
+<p>Selenium</p>
+</div>
+</a>
+<a href="https://www.javatpoint.com/cloud-computing-tutorial">
+<div class="homecontent"><img alt="Cloud tutorial" class="lazyload" data-src="https://static.javatpoint.com/images/logo/cloudhome.png"/>
+<p>Cloud</p>
+</div>
+</a>
+<a href="https://www.javatpoint.com/hadoop-tutorial">
+<div class="homecontent"><img alt="Hadoop tutorial" class="lazyload" data-src="https://static.javatpoint.com/images/logo/hadoop.jpg"/>
+<p>Hadoop</p>
+</div>
+</a>
+<a href="https://www.javatpoint.com/reactjs-tutorial">
+<div class="homecontent"><img alt="ReactJS Tutorial" class="lazyload" data-src="https://static.javatpoint.com/tutorial/reactjs/images/reactjs-home.png"/>
+<p>ReactJS</p>
+</div>
+</a>
+<a href="https://www.javatpoint.com/data-science">
+<div class="homecontent"><img alt="Data Science Tutorial" class="lazyload" data-src="https://static.javatpoint.com/tutorial/data-science/images/data-science-home.png"/>
+<p>D. Science</p>
+</div>
+</a>
+<a href="https://www.javatpoint.com/angular-7-tutorial">
+<div class="homecontent"><img alt="Angular 7 Tutorial" class="lazyload" data-src="https://static.javatpoint.com/tutorial/angular7/images/angular-7-home.png"/>
+<p>Angular 7</p>
+</div>
+</a>
+<a href="https://www.javatpoint.com/blockchain-tutorial">
+<div class="homecontent"><img alt="Blockchain Tutorial" class="lazyload" data-src="https://static.javatpoint.com/tutorial/blockchain/images/blockchain-home.png"/>
+<p>Blockchain</p>
+</div>
+</a>
+<a href="https://www.javatpoint.com/git">
+<div class="homecontent"><img alt="Git Tutorial" class="lazyload" data-src="https://static.javatpoint.com/tutorial/git/images/git-home.png"/>
+<p>Git</p>
+</div>
+</a>
+<a href="https://www.javatpoint.com/machine-learning">
+<div class="homecontent"><img alt="Machine Learning Tutorial" class="lazyload" data-src="https://static.javatpoint.com/tutorial/machine-learning/images/machine-learning-home.png"/>
+<p>ML</p>
+</div>
+</a>
+<a href="https://www.javatpoint.com/devops">
+<div class="homecontent"><img alt="DevOps Tutorial" class="lazyload" data-src="https://static.javatpoint.com/tutorial/devops/images/devops-home.png"/>
+<p>DevOps</p>
+</div>
+</a>
+</div>
+<hr/>
+<!-- B.Tech / MCA -->
+<h2 class="h2">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="https://www.javatpoint.com/dbms-tutorial">
+<div class="homecontent"><img alt="DBMS tutorial" class="lazyload" data-src="https://static.javatpoint.com/dbms/images/dbms-home.jpg"/>
+<p>DBMS</p>
+</div>
+</a>
+<a href="https://www.javatpoint.com/data-structure-tutorial">
+<div class="homecontent"><img alt="Data Structures tutorial" class="lazyload" data-src="https://static.javatpoint.com/ds/images/ds-home.png"/>
+<p>DS</p>
+</div>
+</a>
+<a href="https://www.javatpoint.com/daa-tutorial">
+<div class="homecontent"><img alt="DAA tutorial" class="lazyload" data-src="https://static.javatpoint.com/tutorial/daa/images/daa-home.png"/>
+<p>DAA</p>
+</div>
+</a>
+<a href="https://www.javatpoint.com/os-tutorial">
+<div class="homecontent"><img alt="Operating System tutorial" class="lazyload" data-src="https://static.javatpoint.com/operating-system/images/operating-system-home.png"/>
+<p>OS</p>
+</div>
+</a>
+<a href="https://www.javatpoint.com/computer-network-tutorial">
+<div class="homecontent"><img alt="Computer Network tutorial" class="lazyload" data-src="https://static.javatpoint.com/tutorial/computer-network/images/computer-network-home.png"/>
+<p>C. Network</p>
+</div>
+</a>
+<a href="https://www.javatpoint.com/compiler-tutorial">
+<div class="homecontent"><img alt="Compiler Design tutorial" class="lazyload" data-src="https://static.javatpoint.com/compiler/images/compiler-design-home.png"/>
+<p>Compiler D.</p>
+</div>
+</a>
+<a href="https://www.javatpoint.com/computer-organization-and-architecture-tutorial">
+<div class="homecontent"><img alt="Computer Organization and Architecture" class="lazyload" data-src="https://static.javatpoint.com/tutorial/coa/images/coa-home.png"/>
+<p>COA</p>
+</div>
+</a>
+<a href="https://www.javatpoint.com/discrete-mathematics-tutorial">
+<div class="homecontent"><img alt="Discrete Mathematics Tutorial" class="lazyload" data-src="https://static.javatpoint.com/tutorial/dms/images/discrete-mathematics-home.png"/>
+<p>D. Math.</p>
+</div>
+</a>
+<a href="https://www.javatpoint.com/ethical-hacking-tutorial">
+<div class="homecontent"><img alt="Ethical Hacking Tutorial" class="lazyload" data-src="https://static.javatpoint.com/tutorial/ethical-hacking/images/ethical-hacking-home.png"/>
+<p>E. Hacking</p>
+</div>
+</a>
+<a href="https://www.javatpoint.com/computer-graphics-tutorial">
+<div class="homecontent"><img alt="Computer Graphics Tutorial" class="lazyload" data-src="https://static.javatpoint.com/tutorial/computer-graphics/images/computer-graphics-home.png"/>
+<p>C. Graphics</p>
+</div>
+</a>
+<a href="https://www.javatpoint.com/software-engineering-tutorial">
+<div class="homecontent"><img alt="Software Engineering Tutorial" class="lazyload" data-src="https://static.javatpoint.com/tutorial/software-engineering/images/software-engineering-home.png"/>
+<p>Software E.</p>
+</div>
+</a>
+<a href="https://www.javatpoint.com/html-tutorial">
+<div class="homecontent"><img alt="html tutorial" class="lazyload" data-src="https://static.javatpoint.com/images/logo/html-tutorial.png"/>
+<p>Web Tech.</p>
+</div>
+</a>
+<a href="https://www.javatpoint.com/cyber-security-tutorial">
+<div class="homecontent"><img alt="Cyber Security tutorial" class="lazyload" data-src="https://static.javatpoint.com/tutorial/cybersecurity/images/cyber-security-home.png"/>
+<p>Cyber Sec.</p>
+</div>
+</a>
+<a href="https://www.javatpoint.com/automata-tutorial">
+<div class="homecontent"><img alt="Automata Tutorial" class="lazyload" data-src="https://static.javatpoint.com/tutorial/automata/images/automata-home.jpg"/>
+<p>Automata</p>
+</div>
+</a>
+<a href="https://www.javatpoint.com/c-programming-language-tutorial">
+<div class="homecontent"><img alt="C Language tutorial" class="lazyload" data-src="https://static.javatpoint.com/images/logo/clanguagehome.png"/>
+<p>C</p>
+</div>
+</a>
+<a href="https://www.javatpoint.com/cpp-tutorial">
+<div class="homecontent"><img alt="C++ tutorial" class="lazyload" data-src="https://static.javatpoint.com/cpp/images/cpp-home.png"/>
+<p>C++</p>
+</div>
+</a>
+<a href="https://www.javatpoint.com/java-tutorial">
+<div class="homecontent"><img alt="Java tutorial" class="lazyload" data-src="https://static.javatpoint.com/images/logo/javahome.png"/>
+<p>Java</p>
+</div>
+</a>
+<a href="https://www.javatpoint.com/net-framework">
+<div class="homecontent"><img alt=".Net Framework tutorial" class="lazyload" data-src="https://static.javatpoint.com/csharp/net/images/net-home.png"/>
+<p>.Net</p>
+</div>
+</a>
+<a href="https://www.javatpoint.com/python-tutorial">
+<div class="homecontent"><img alt="Python tutorial" class="lazyload" data-src="https://static.javatpoint.com/images/logo/pythonhome.png"/>
+<p>Python</p>
+</div>
+</a>
+<a href="https://www.javatpoint.com/programs-list">
+<div class="homecontent"><img alt="List of Programs" class="lazyload" data-src="https://www.javatpoint.com/images/programs.jpg"/>
+<p>Programs</p>
+</div>
+</a>
+<a href="https://www.javatpoint.com/control-system-tutorial">
+<div class="homecontent"><img alt="Control Systems tutorial" class="lazyload" data-src="https://static.javatpoint.com/tutorial/control-system/images/control-system-home.jpg"/>
+<p>Control S.</p>
+</div>
+</a>
+<a href="https://www.javatpoint.com/data-mining">
+<div class="homecontent"><img alt="Data Mining Tutorial" class="lazyload" data-src="https://static.javatpoint.com/tutorial/data-mining/images/data-mining-home.png"/>
+<p>Data Mining</p>
+</div>
+</a>
+</div>
+</div>
+<br/><br><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+" data-adpcontrol="jrfe7" data-siteid="37780" data-ver="2"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></br></div>
+<div id="right">
+<ins class="adPushupAds" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBuZXdyaWdodCAtLT4KPGlucyBjbGFzcz0iYWRzYnlnb29nbGUiCiAgICAgc3R5bGU9ImRpc3BsYXk6YmxvY2siCiAgICAgZGF0YS1hZC1jbGllbnQ9ImNhLXB1Yi00Njk5ODU4NTQ5MDIzMzgyIgogICAgIGRhdGEtYWQtc2xvdD0iNjAzNDkxMjU0MSIKICAgICBkYXRhLWFkLWZvcm1hdD0iYXV0byIKICAgICBkYXRhLWZ1bGwtd2lkdGgtcmVzcG9uc2l2ZT0idHJ1ZSI+PC9pbnM+CjxzY3JpcHQ+CihhZHNieWdvb2dsZSA9IHdpbmRvdy5hZHNieWdvb2dsZSB8fCBbXSkucHVzaCh7fSk7Cjwvc2NyaXB0Pg==" data-adpcontrol="am3c1" data-siteid="37780" data-ver="2"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br/><br/>
+<ins class="adPushupAds" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBuZXdyaWdodCAtLT4KPGlucyBjbGFzcz0iYWRzYnlnb29nbGUiCiAgICAgc3R5bGU9ImRpc3BsYXk6YmxvY2siCiAgICAgZGF0YS1hZC1jbGllbnQ9ImNhLXB1Yi00Njk5ODU4NTQ5MDIzMzgyIgogICAgIGRhdGEtYWQtc2xvdD0iNjAzNDkxMjU0MSIKICAgICBkYXRhLWFkLWZvcm1hdD0iYXV0byIKICAgICBkYXRhLWZ1bGwtd2lkdGgtcmVzcG9uc2l2ZT0idHJ1ZSI+PC9pbnM+CjxzY3JpcHQ+CihhZHNieWdvb2dsZSA9IHdpbmRvdy5hZHNieWdvb2dsZSB8fCBbXSkucHVzaCh7fSk7Cjwvc2NyaXB0Pg==" data-adpcontrol="am3c1" data-siteid="37780" data-ver="2"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br/><br/>
+</div>
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+<!-- right1024only -->
+<ins class="adPushupAds" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K" data-adpcontrol="6d5qg" data-siteid="37780" data-ver="2"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br/><br/>
+<ins class="adPushupAds" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K" data-adpcontrol="6d5qg" data-siteid="37780" data-ver="2"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br/>
+<div id="footer" style="clear:both;width:100%">
+<!--<div style="width:100%;float:center;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#90715c,#523b1f);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Summer Training</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers <strong>Summer Internship Training</strong> on Java, PHP, .Net, Hadoop, Data Analytics, R Programming, SAP, Android, Python, Oracle, Seleninum, Linux, C++ and many more technologies in Delhi/NCR, India. For more visit <a style="color:white" href="https://training.javatpoint.com"><img src="https://static.javatpoint.com/images/linkglobe12.png" alt="javatpoint training"/>training.javatpoint.com</a> <br>Course Fee: &#8377; 6000 Only<br>Duration: 6 Week </p></div>--><div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com. <br/>Duration: 1 week to 2 week<br/></p></div><!--<div class="homebox2"><h2>Our Initiatives</h2><marquee behavior="alternate"><a rel="nofollow noopener" href="https://www.hindi100.com"><div class="box2"><img class="box2img" src="https://www.hindi100.com/resources/images/javatpoint.png" alt="javatpoint"/><p>Hindi100</p></div></a><a rel="nofollow noopener" href="https://www.lyricsia.com"><div class="box2"><img class="box2img" src="https://www.hindi100.com/resources/images/lyrics.png" alt="lyrics"/><p>Lyricsia</p></div></a></div></a></marquee></div>--><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a href="https://feeds.feedburner.com/javatpointsonoo" rel="nofollow noopener" target="_blank"><img alt="RSS Feed" src="https://static.javatpoint.com/images/social/rss1.png"/></a> <a href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo" rel="nofollow noopener" target="_blank"><img alt="Subscribe to Get Email Alerts" src="https://static.javatpoint.com/images/social/mail1.png"/></a> <a href="https://www.facebook.com/javatpoint" rel="nofollow noopener" target="_blank"><img alt="Facebook Page" src="https://static.javatpoint.com/images/social/facebook1.jpg"/></a> <a href="https://twitter.com/pagejavatpoint" rel="nofollow" target="_blank noopener"><img alt="Twitter Page" src="https://static.javatpoint.com/images/social/twitter1.png"/></a> <a href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg" rel="nofollow noopener" target="_blank"><img alt="YouTube" src="https://static.javatpoint.com/images/youtube32.png"/></a> <a href="https://javatpoint.blogspot.com" rel="nofollow noopener" target="_blank"><img alt="Blog Page" src="https://static.javatpoint.com/images/social/blog.png"/></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="https://www.javatpoint.com/java-tutorial">Learn Java</a><a href="https://www.javatpoint.com/data-structure-tutorial">Learn Data Structures</a><a href="https://www.javatpoint.com/c-programming-language-tutorial">Learn C Programming</a><a href="https://www.javatpoint.com/cpp-tutorial">Learn C++ Tutorial</a><a href="https://www.javatpoint.com/c-sharp-tutorial">Learn C# Tutorial</a><a href="https://www.javatpoint.com/php-tutorial">Learn PHP Tutorial</a><a href="https://www.javatpoint.com/html-tutorial">Learn HTML Tutorial</a><a href="https://www.javatpoint.com/javascript-tutorial">Learn JavaScript Tutorial</a><a href="https://www.javatpoint.com/jquery-tutorial">Learn jQuery Tutorial</a><a href="https://www.javatpoint.com/spring-tutorial">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="https://www.javatpoint.com">Javatpoint.com</a><a href="https://www.hindi100.com" rel="dofollow noopener" target="_blank">Hindi100.com</a><a href="https://www.lyricsia.com" rel="dofollow noopener" target="_blank">Lyricsia.com</a><a href="https://www.quoteperson.com" rel="nofollow noopener" target="_blank">Quoteperson.com</a><a href="https://www.jobandplacement.com" rel="nofollow noopener" target="_blank">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="https://www.javatpoint.com/contact-us">Contact Us</a> <a href="https://www.javatpoint.com/subscribe.jsp">Subscribe Us</a> <a href="https://www.javatpoint.com/privacy-policy">Privacy Policy</a><a href="https://www.javatpoint.com/sitemap.xml">Sitemap</a><br/><a href="https://www.javatpoint.com/sonoo-jaiswal">About Me</a></div></footer><footer class="footer2"><p>© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+</div></div></div>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script async="" src="https://static.javatpoint.com/lazysizes.min.js"></script>
+</body> </html> <hr><hr>
