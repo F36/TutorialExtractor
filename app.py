@@ -18,9 +18,9 @@ def input_post():
     print(outFile)
     oF = copy.deepcopy(outFile)
     if 'tutorialspoint' in str(URL):
-        TPExtractor(["dummy", URL, pages, oF])
+        TPExtractor(["dummy", URL, pages, oF]).main()
     else:
-        Generic(["dummy", URL, pages, oF])
+        Generic(["dummy", URL, pages, oF]).main()
     print(outFile)
     message = '<br><br>Your File is Ready to <a href="' + outFile + '"> Download </a>'
     return render_template("index.html") + message

@@ -13,17 +13,17 @@ class TPExtractor:
         self.start = '<!-- Tutorial Content Starts Here -->'
         self.end = '<!-- Tutorial Content Ends Here -->'
         self.domain = 'https://www.tutorialspoint.com'
-        url = str(argsList[1])
-        iters = int(argsList[2]) if len(argsList) > 2 else 1
-        outFile = str(argsList[3]) if len(argsList) > 3 else 'out'
+        self.url = str(argsList[1])
+        self.iters = int(argsList[2]) if len(argsList) > 2 else 1
+        self.outFile = str(argsList[3]) if len(argsList) > 3 else 'out'
+        outFile = self.outFile
         for i in ['.html', '.pdf']:
             if os.path.exists(outFile + i):
                 os.remove(outFile + i)
         for file in os.scandir('.'):
             if file.name.endswith(".html") or file.name.endswith(".pdf"):
                 os.unlink(file.path)
-        self.addToHTML(url, iters, outFile)
-    
+
     def getPDF(self, filename = 'out'):
 
         def _get_pdfkit_config():
@@ -63,8 +63,7 @@ class TPExtractor:
             print(E)
             return False
 
-    def absoluteLinks(self, content):
-        domain = self.domain
+    def absoluteLinks(self, content, domain):
         soup = BeautifulSoup(content, 'html.parser')
         for hyperlink in soup.find_all(href=True):
             try:
@@ -85,7 +84,7 @@ class TPExtractor:
         req = request.urlopen(URL)
         html = req.read().decode('utf-8')
         content = html.split(self.start)[1].split(self.end)[0]
-        content = self.absoluteLinks(content)
+        content = self.absoluteLinks(content, self.domain)
         htmlFilename = filename + '.html'
         if os.path.exists(htmlFilename):
             fileOption = 'a'
@@ -102,26 +101,73 @@ class TPExtractor:
         else:
             self.addToHTML(nextURL, iterations = iterations - 1, filename = filename)
 
+    def main(self):
+        self.addToHTML(self.url, self.iters, self.outFile)
+
+
 class Generic:
 
     def __init__(self, argsList):
-        url = str(argsList[1])
-        iters = int(argsList[2]) if len(argsList) > 2 else 1
-        outFile = str(argsList[3]) if len(argsList) > 3 else 'out'
-        for i in ['.html', '.pdf']:
-            if os.path.exists(outFile + i):
-                os.remove(outFile + i)
-        for file in os.scandir('.'):
-            if file.name.endswith(".html") or file.name.endswith(".pdf"):
-                os.unlink(file.path)
-        self.domain = str(url.split("//")[-1].split("/")[0].split('?')[0])
-        self.util(url, iters, outFile)
+        self.url = str(argsList[1])
+        self.iters = int(argsList[2]) if len(argsList) > 2 else 1
+        self.outFile = str(argsList[3]) if len(argsList) > 3 else 'out'
+        outFile = self.outFile
+        self.ob = TPExtractor(argsList)
+        self.domain = str(self.url.split("//")[-1].split("/")[0].split('?')[0])
+        print(self.domain)
+
+
+    def getNext(self, content):
+        try:
+            print("shis")
+            soup = BeautifulSoup(content, 'html.parser')
+            tagsToConsider = ['a', 'div', 'button', 'area', 'base', 'link']
+            mydivs = []
+            for tag in tagsToConsider:
+                mydivs.extend(list(soup.find_all(name=tag, href=True)))
+            print(mydivs)
+            return False
+        except Exception as E:
+            print(E)
+            return False
 
     def util(self, URL, iterations = 1, filename = 'out'):
-        print(self.domain)
+        print(str(iterations) + " pages to go . . .")
+        if iterations < 1:
+            return self.ob.getPDF(filename)
+        print('.')
+        req = request.urlopen(URL)
+        html = req.read().decode('utf-8')
+        domain = self.domain
+        print('.')
+        # content = self.ob.absoluteLinks(html, domain)
+        content = html
+        htmlFilename = filename + '.html'
+        print('.')
+        if os.path.exists(htmlFilename):
+            fileOption = 'a'
+        else:
+            fileOption = 'w'
+        print('.')
+        
+        f = open(htmlFilename, fileOption)
+        f.write(content + '<hr><hr>')
+        f.close()
+        print('.')
+
+        nextURL = self.getNext(content)
+        print('.')
+        if not nextURL:
+            self.util(URL, iterations = 0, filename = filename)
+        else:
+            self.util(nextURL, iterations = iterations - 1, filename = filename)
+
+    def main(self):
+        self.util(self.url, self.iters, self.outFile)
+
 
 #  TEST
 if __name__ == '__main__':
     argsList = sys.argv
     # TPExtractor(argsList)
-    Generic(argsList)
+    Generic(argsList).main()
