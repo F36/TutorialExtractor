@@ -1,4 +1,4 @@
-from main import TPExtractor
+from main import TPExtractor, Generic
 from flask import Flask, request, render_template, send_file
 import time
 import os
@@ -17,7 +17,10 @@ def input_post():
     outFile = request.form['outFile']
     print(outFile)
     oF = copy.deepcopy(outFile)
-    TPExtractor(["dummy", URL, pages, oF])
+    if 'tutorialspoint' in str(URL):
+        TPExtractor(["dummy", URL, pages, oF])
+    else:
+        Generic(["dummy", URL, pages, oF])
     print(outFile)
     message = '<br><br>Your File is Ready to <a href="' + outFile + '"> Download </a>'
     return render_template("index.html") + message

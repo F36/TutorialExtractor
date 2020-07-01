@@ -102,7 +102,26 @@ class TPExtractor:
         else:
             self.addToHTML(nextURL, iterations = iterations - 1, filename = filename)
 
+class Generic:
+
+    def __init__(self, argsList):
+        url = str(argsList[1])
+        iters = int(argsList[2]) if len(argsList) > 2 else 1
+        outFile = str(argsList[3]) if len(argsList) > 3 else 'out'
+        for i in ['.html', '.pdf']:
+            if os.path.exists(outFile + i):
+                os.remove(outFile + i)
+        for file in os.scandir('.'):
+            if file.name.endswith(".html") or file.name.endswith(".pdf"):
+                os.unlink(file.path)
+        self.domain = str(url.split("//")[-1].split("/")[0].split('?')[0])
+        self.util(url, iters, outFile)
+
+    def util(self, URL, iterations = 1, filename = 'out'):
+        print(self.domain)
+
 #  TEST
 if __name__ == '__main__':
     argsList = sys.argv
-    TPExtractor(argsList)
+    # TPExtractor(argsList)
+    Generic(argsList)
