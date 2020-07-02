@@ -1,5 +1,6 @@
 from urllib import request
 from bs4 import BeautifulSoup
+from multiprocessing import Process
 import json
 import os
 import sys
@@ -7,6 +8,8 @@ import pdfkit
 import subprocess
 import platform
 import re 
+import time
+
 
 def getPDF(filename = 'out'):
 
@@ -170,7 +173,11 @@ class Generic:
     def util(self, URL, iterations = 1, filename = 'out'):
         print(str(iterations) + " pages to go . . .")
         if iterations < 1:
-            return getPDF(filename)
+            action_process = Process(target=lambda : getPDF(filename))
+            action_process.start()
+            action_process.join(timeout=15)
+            action_process.terminate()
+            return None
         req = request.urlopen(URL)
         html = req.read().decode('utf-8')
         domain = self.domain

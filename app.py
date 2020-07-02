@@ -28,13 +28,15 @@ def input_post():
 @app.route('/<outFile>')
 def getDownload(outFile) :
     try:
-        files = [f for f in os.listdir('.') if os.path.isfile(f)]
+        files = [str(f) for f in os.listdir('.') if os.path.isfile(f)]
         for f in files:
             print(f)
-        return send_file(filename_or_fp = str(outFile + '.pdf'), as_attachment=True), None
+        if str(outFile + '.pdf') in files:
+            return send_file(filename_or_fp = str(outFile + '.pdf'), as_attachment=True), None
+        return send_file(filename_or_fp = str(outFile + '.html'), as_attachment=True), None
     except Exception as E:
         print(E)
         return 'Error'
 
 if __name__ == '__main__':
-    app.run(host="localhost", port=8000, debug=True)
+    app.run(host="localhost", port=8000, debug=False)
