@@ -1,6 +1,7 @@
 from urllib import request
 from bs4 import BeautifulSoup
 from multiprocessing import Process
+from collections import deque
 import json
 import os
 import sys
@@ -140,9 +141,18 @@ class Generic:
             #     if 'href' in line:
             #         # print(line)
             #         continue
+            ret = deque([])
+            retP = deque([])
             for l in soup.find_all(href=True):
                 if self.nextRe.match(str(l)) and ( 'class' in str(l) or 'id' in str(l)):
-                    return str(l["href"])
+                    ret.appendleft(str(l["href"]))
+                elif self.nextRe.match(str(l.parent)) and ( 'class' in str(l.parent) or 'id' in str(l.parent)):
+                    retP.appendleft(str(l["href"]))
+            if ret:
+                return ret[0]
+            if retP:
+                return ret[0]
+            print(ret, retP)
             return False
         except Exception as E:
             print(E)
@@ -193,7 +203,7 @@ class Generic:
         print('.')
 
         nextURL = self.getNext(content)
-        print('.')
+        print(nextURL)
         if not nextURL:
             self.util(URL, iterations = 0, filename = filename)
         else:
@@ -208,4 +218,4 @@ if __name__ == '__main__':
     argsList = sys.argv
     # TPExtractor(argsList).main()
     # Generic(argsList).main()
-    # getPDF('wer')
+    # getPDF('out')
