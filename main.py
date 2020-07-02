@@ -8,6 +8,35 @@ import subprocess
 import platform
 import re 
 
+def getPDF(filename = 'out'):
+
+    def _get_pdfkit_config():
+        """wkhtmltopdf lives and functions differently depending on Windows or Linux. We
+        need to support both since we develop on windows but deploy on Heroku.
+        Returns: A pdfkit configuration"""
+        if platform.system() == 'Windows':
+            return pdfkit.configuration(wkhtmltopdf=os.environ.get('WKHTMLTOPDF_BINARY', 'C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe'))
+        else:
+            WKHTMLTOPDF_CMD = subprocess.Popen(['which', os.environ.get('WKHTMLTOPDF_BINARY', 'wkhtmltopdf')], stdout=subprocess.PIPE).communicate()[0].strip()
+            return pdfkit.configuration(wkhtmltopdf=WKHTMLTOPDF_CMD)
+
+    try:
+        if 'DYNO' in os.environ:
+            print ('loading wkhtmltopdf path on heroku')
+            WKHTMLTOPDF_CMD = subprocess.Popen(
+                ['which', os.environ.get('WKHTMLTOPDF_BINARY', 'wkhtmltopdf-pack')], # Note we default to 'wkhtmltopdf' as the binary name
+                stdout=subprocess.PIPE).communicate()[0].strip()
+            print("DYNO")
+            pdfkit.from_file(filename + '.html', filename + '.pdf', configuration=_get_pdfkit_config())
+        else:
+            print ('loading wkhtmltopdf path on localhost')
+            MYDIR = os.path.dirname(__file__)    
+            WKHTMLTOPDF_CMD = os.path.join(MYDIR + "/static/executables/bin/", "wkhtmltopdf.exe")
+            pdfkit.from_file(filename + '.html', filename + '.pdf', configuration=_get_pdfkit_config())
+    except Exception as e:
+        print("Empty File Possible" + str(e))
+
+
 class TPExtractor:
 
     def __init__(self, argsList):
@@ -24,34 +53,6 @@ class TPExtractor:
         for file in os.scandir('.'):
             if file.name.endswith(".html") or file.name.endswith(".pdf"):
                 os.unlink(file.path)
-
-    def getPDF(self, filename = 'out'):
-
-        def _get_pdfkit_config():
-            """wkhtmltopdf lives and functions differently depending on Windows or Linux. We
-            need to support both since we develop on windows but deploy on Heroku.
-            Returns: A pdfkit configuration"""
-            if platform.system() == 'Windows':
-                return pdfkit.configuration(wkhtmltopdf=os.environ.get('WKHTMLTOPDF_BINARY', 'C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe'))
-            else:
-                WKHTMLTOPDF_CMD = subprocess.Popen(['which', os.environ.get('WKHTMLTOPDF_BINARY', 'wkhtmltopdf')], stdout=subprocess.PIPE).communicate()[0].strip()
-                return pdfkit.configuration(wkhtmltopdf=WKHTMLTOPDF_CMD)
-
-        try:
-            if 'DYNO' in os.environ:
-                print ('loading wkhtmltopdf path on heroku')
-                WKHTMLTOPDF_CMD = subprocess.Popen(
-                    ['which', os.environ.get('WKHTMLTOPDF_BINARY', 'wkhtmltopdf-pack')], # Note we default to 'wkhtmltopdf' as the binary name
-                    stdout=subprocess.PIPE).communicate()[0].strip()
-                print("DYNO")
-                pdfkit.from_file(filename + '.html', filename + '.pdf', configuration=_get_pdfkit_config())
-            else:
-                print ('loading wkhtmltopdf path on localhost')
-                MYDIR = os.path.dirname(__file__)    
-                WKHTMLTOPDF_CMD = os.path.join(MYDIR + "/static/executables/bin/", "wkhtmltopdf.exe")
-                pdfkit.from_file(filename + '.html', filename + '.pdf', configuration=_get_pdfkit_config())
-        except Exception as e:
-            print("Empty File Possible" + str(e))
 
     def getNext(self, content):
         try:
@@ -81,7 +82,7 @@ class TPExtractor:
     def addToHTML(self, URL, iterations = 1, filename = 'out'):
         print(str(iterations) + " pages to go . . .")
         if iterations < 1:
-            return self.getPDF(filename)
+            return getPDF(filename)
         req = request.urlopen(URL)
         html = req.read().decode('utf-8')
         content = html.split(self.start)[1].split(self.end)[0]
@@ -124,21 +125,21 @@ class Generic:
             r'\[?[A-F0-9]*:[A-F0-9:]+\]?)' # ...or ipv6
             r'(?::\d+)?' # optional port
             r'(?:/?|[/?]\S+)$', re.IGNORECASE)
-
+        self.nextRe = re.compile(r'.*(next|nxt).*', re.IGNORECASE)
 
     def getNext(self, content):
         try:
-            print(content)
             soup = BeautifulSoup(content, 'html.parser')
-            parsed = soup.prettify()
-            parsed = parsed.split('\n')
-            print(parsed)
-            for line in parsed:
-                if 'href' in line:
-                    # print(line)
-                    continue
+            # parsed = soup.prettify()
+            # parsed = parsed.split('\n')
+            # print(parsed)
+            # for line in parsed:
+            #     if 'href' in line:
+            #         # print(line)
+            #         continue
             for l in soup.find_all(href=True):
-                print(l["href"])
+                if self.nextRe.match(str(l)) and ( 'class' in str(l) or 'id' in str(l)):
+                    return str(l["href"])
             return False
         except Exception as E:
             print(E)
@@ -153,7 +154,7 @@ class Generic:
             elif str(hyperlink["href"]).startswith('./'):
                 hyperlink["href"] = str(domain) + hyperlink["href"][1:]
             elif not self.regex.match(hyperlink["href"]):
-                hyperlink["href"] = str(domain) + '/' + hyperlink["href"]
+                hyperlink["href"] = 'http://' + str(domain) + '/' + hyperlink["href"]
 
         
         for hyperlink in soup.find_all(src=True):
@@ -162,14 +163,14 @@ class Generic:
             elif str(hyperlink["src"]).startswith('./'):
                 hyperlink["src"] = str(domain) + hyperlink["src"][1:]
             elif not self.regex.match(hyperlink["src"]):
-                hyperlink["src"] = str(domain) + '/' + hyperlink["src"]
+                hyperlink["src"] = 'http://' + str(domain) + '/' + hyperlink["src"]
         
         return str(soup)
 
     def util(self, URL, iterations = 1, filename = 'out'):
         print(str(iterations) + " pages to go . . .")
         if iterations < 1:
-            return self.ob.getPDF(filename)
+            return getPDF(filename)
         req = request.urlopen(URL)
         html = req.read().decode('utf-8')
         domain = self.domain
@@ -198,5 +199,6 @@ class Generic:
 #  TEST
 if __name__ == '__main__':
     argsList = sys.argv
-    # TPExtractor(argsList)
-    Generic(argsList).main()
+    # TPExtractor(argsList).main()
+    # Generic(argsList).main()
+    # getPDF('wer')
