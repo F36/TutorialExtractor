@@ -5,7 +5,8 @@ import os
 import sys
 import pdfkit
 import subprocess
-import platform 
+import platform
+import re 
 
 class TPExtractor:
 
@@ -115,6 +116,14 @@ class Generic:
         self.ob = TPExtractor(argsList)
         self.domain = str(self.url.split("//")[-1].split("/")[0].split('?')[0])
         print(self.domain)
+        self.regex = re.compile(
+            r'^(?:http|ftp)s?://' # http:// or https://
+            r'(?:(?:[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?\.)+(?:[A-Z]{2,6}\.?|[A-Z0-9-]{2,}\.?)|' # domain...
+            r'localhost|' # localhost...
+            r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}|' # ...or ipv4
+            r'\[?[A-F0-9]*:[A-F0-9:]+\]?)' # ...or ipv6
+            r'(?::\d+)?' # optional port
+            r'(?:/?|[/?]\S+)$', re.IGNORECASE)
 
 
     def getNext(self, content):
@@ -126,7 +135,10 @@ class Generic:
             print(parsed)
             for line in parsed:
                 if 'href' in line:
-                    print(line)
+                    # print(line)
+                    continue
+            for l in soup.find_all(href=True):
+                print(l["href"])
             return False
         except Exception as E:
             print(E)
@@ -134,16 +146,24 @@ class Generic:
 
     def getAbsolute(self, content, domain):
         soup = BeautifulSoup(content, 'html.parser')
+        
         for hyperlink in soup.find_all(href=True):
             if str(hyperlink["href"]).startswith('/'):
                 hyperlink["href"] = str(domain) + hyperlink["href"]
             elif str(hyperlink["href"]).startswith('./'):
                 hyperlink["href"] = str(domain) + hyperlink["href"][1:]
+            elif not self.regex.match(hyperlink["href"]):
+                hyperlink["href"] = str(domain) + '/' + hyperlink["href"]
+
+        
         for hyperlink in soup.find_all(src=True):
             if str(hyperlink["src"]).startswith('/'):
                 hyperlink["src"] = str(domain) + hyperlink["src"]
             elif str(hyperlink["src"]).startswith('./'):
                 hyperlink["src"] = str(domain) + hyperlink["src"][1:]
+            elif not self.regex.match(hyperlink["src"]):
+                hyperlink["src"] = str(domain) + '/' + hyperlink["src"]
+        
         return str(soup)
 
     def util(self, URL, iterations = 1, filename = 'out'):
